@@ -8,7 +8,7 @@ app = FastAPI(
     version="1.0.0",
     servers=[
         {
-            "url": "https://XXX",
+            "url": "https://pricecalculator-0a512b36a62f.herokuapp.com",
             "description": "Commission Calculator API"
         }
     ]
