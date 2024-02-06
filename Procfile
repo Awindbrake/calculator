@@ -1,1 +1,1 @@
-web: uvicorn calculator:app --host=0.0.0.0 --port=${PORT}
+web: uvicorn commission_calculator:app --host=0.0.0.0 --port=${PORT}
