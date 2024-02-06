@@ -39,29 +39,14 @@ def read_root():
     """
 
 
-class provided_data(TypedDict, total=False):
-    contract_price: Optional[float]
-    mark_up: Optional[float]
-    
-    
-
-@app.post("/submitData")
-def submit_data(input_data: provided_data):
-    # Process the data
-    # For example, you can pass this data to your calculation functions
-    # and return the results
-    return {"message": "Data received successfully"}
-
+class FinancialData(BaseModel):
+    contract_price: float
+    mark_up: float
 
 @app.post("/calculateKPIs")
-def api_calculate_kpis(input_data: provided_data):
-    kpi_results = {}
+def api_calculate_kpis(input_data: FinancialData):
     try:
-        # Iterate through each year's data in the input
-        for year, details in input_data.data.items():
-            # Calculate KPIs for this year
-            kpis_for_year = calculate_kpis(details, year)
-            kpi_results[year] = kpis_for_year
+        kpi_results = calculate_kpis(input_data.dict())
         return kpi_results
     except ValidationError as e:
         raise HTTPException(status_code=422, detail=str(e))
@@ -70,31 +55,21 @@ def api_calculate_kpis(input_data: provided_data):
 
 def calculate_kpis(input_data):
     try:
-        # Retrieve values from financial_data, set defaults to 0 if not present
+        # Retrieve values from input_data
         contract_price = input_data.get('contract_price', 0)
-        mark_up = financial_data.get('mark_up', 0)
-        final_price = contract_price * (1+mark_up)
-
+        mark_up = input_data.get('mark_up', 0)
 
         # Perform calculations
+        final_price = contract_price * (1 + mark_up)
+
         kpi_data = {
-            'final price': contract_price * (1+mark_up) if mark_up else contract_price,
-            
-            
+            'final_price': final_price,
         }
         
         return kpi_data
-
-    except TypeError as e:
-        # Handle specific type error (e.g., if non-numeric value encountered)
-        raise HTTPException(status_code=422, detail=f"Type error in financial data: {e}")
-    except ZeroDivisionError:
-        # Handle division by zero error specifically
-        raise HTTPException(status_code=422, detail="Attempted to divide by zero in KPI calculations")
     except Exception as e:
-        # Catch-all for any other unexpected errors
-        raise HTTPException(status_code=500, detail=f"Unexpected error calculating KPIs: {str(e)}")
-
+        # Handle any unexpected errors during calculation
+        raise Exception(f"Error in KPI calculation: {e}")
 
 
 # Main function, assuming it's now being used to run a simple server
