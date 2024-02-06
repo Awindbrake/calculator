@@ -16,7 +16,82 @@ app = FastAPI(
 
 # Define the representatives' commission structure
 representatives = {
-    # Your existing representatives dictionary
+    "Boogen": [
+        {"name": "Range1", "limit": 500000, "percent": 0.05},
+        {"name": "Range2", "limit": 2000000, "percent": 0.04},
+        {"name": "Range3", "limit": 5000000, "percent": 0.03},
+        {"name": "Range4", "limit": 10000000, "percent": 0.02},
+        {"name": "Range5", "limit": 1000000000, "percent": 0.015},
+    ],
+    "Eksal": [
+        {"name": "Range1", "limit": 250000, "percent": 0.03},
+        {"name": "Range2", "limit": 500000, "percent": 0.03},
+        {"name": "Range3", "limit": 1000000, "percent": 0.03},
+        {"name": "Range4", "limit": 2500000, "percent": 0.03},
+        {"name": "Range5", "limit": 5000000, "percent": 0.03},
+        {"name": "Range6", "limit": 1000000000, "percent": 0.03},
+    ],
+    "Uhlin": [
+        {"name": "Range1", "limit": 500000, "percent": 0.0167},
+        {"name": "Range2", "limit": 2500000, "percent": 0.01},
+        {"name": "Range3", "limit": 10000000, "percent": 0.004},
+        {"name": "Range4", "limit": 25000000, "percent": 0.0023},
+        {"name": "Range5", "limit": 1000000000, "percent": 0.0017},
+    ],
+    "Tuna": [
+        {"name": "Range1", "limit": 50000, "percent": 0.07},
+        {"name": "Range2", "limit": 150000, "percent": 0.06},
+        {"name": "Range3", "limit": 1000000, "percent": 0.05},
+        {"name": "Range4", "limit": 2000000, "percent": 0.04},
+        {"name": "Range5", "limit": 3750000, "percent": 0.02},
+    ],
+    "Beyer": [
+        {"name": "Range1", "limit": 500000, "percent": 0.05},
+        {"name": "Range2", "limit": 2500000, "percent": 0.03},
+        {"name": "Range3", "limit": 10000000, "percent": 0.012},
+        {"name": "Range4", "limit": 25000000, "percent": 0.007},
+        {"name": "Range5", "limit": 1000000000, "percent": 0.005},
+    ],
+    "Mak Demir": [
+        {"name": "Range1", "limit": 500000, "percent": 0.045},
+        {"name": "Range2", "limit": 5000000, "percent": 0.035},
+        {"name": "Range3", "limit": 10000000, "percent": 0.02},
+        {"name": "Range4", "limit": 1000000000, "percent": 0.01},
+    ],
+    "Meta Mak": [
+        {"name": "Range1", "limit": 500000, "percent": 0.05},
+        {"name": "Range2", "limit": 1000000, "percent": 0.04},
+        {"name": "Range3", "limit": 2500000, "percent": 0.035},
+        {"name": "Range4", "limit": 5000000, "percent": 0.025},
+        {"name": "Range5", "limit": 1000000000, "percent": 0.015},
+    ],
+    "Tete": [
+        {"name": "Range1", "limit": 300000, "percent": 0.05},
+        {"name": "Range2", "limit": 1000000, "percent": 0.04},
+        {"name": "Range3", "limit": 5000000, "percent": 0.03},
+        {"name": "Range4", "limit": 10000000, "percent": 0.02},
+        {"name": "Range5", "limit": 1000000000, "percent": 0.015},
+    ],
+    "JVO": [
+        {"name": "Range1", "limit": 250000, "percent": 0.06},
+        {"name": "Range2", "limit": 500000, "percent": 0.05},
+        {"name": "Range3", "limit": 1000000, "percent": 0.04},
+        {"name": "Range4", "limit": 1500000, "percent": 0.03},
+        {"name": "Range5", "limit": 1000000000, "percent": 0.02},
+    ],
+    "Hotech": [
+        {"name": "Range1", "limit": 500000, "percent": 0.05},
+        {"name": "Range2", "limit": 1000000, "percent": 0.05},
+        {"name": "Range3", "limit": 5000000, "percent": 0.035},
+        {"name": "Range4", "limit": 10000000, "percent": 0.025},
+        {"name": "Range5", "limit": 1000000000, "percent": 0.01},
+    ],
+    "Ilk San": [
+        {"name": "Range1", "limit": 250000, "percent": 0.04},
+        {"name": "Range2", "limit": 750000, "percent": 0.03},
+        {"name": "Range3", "limit": 2500000, "percent": 0.02},
+        {"name": "Range4", "limit": 1000000000, "percent": 0.01},
+    ],
 }
 
 class CommissionData(BaseModel):
