@@ -18,7 +18,7 @@ app = FastAPI(
         servers = [
             {
 
-            "url": "https://pricecalculator-0a512b36a62f.herokuapp.com/",
+            "url": "https://pricecalculator-0a512b36a62f.herokuapp.com",
             "description": "calculator"
             }
         ]
