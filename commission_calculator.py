@@ -14,6 +14,18 @@ app = FastAPI(
     ]
 )
 
+# Define the milestone names and their corresponding durations
+milestone_names = [
+    "Engineering",
+    "Deliveries",
+    "Erection",
+    "Technical Assistance",
+    "Commercial Start-up (First Product)",
+    "PAC",
+    "FAC",
+    "End of Warranty"
+]
+
 # Define the representatives' commission structure
 representatives = {
     "Boogen": [
@@ -31,7 +43,14 @@ representatives = {
         {"name": "Range5", "limit": 5000000, "percent": 0.03},
         {"name": "Range6", "limit": 1000000000, "percent": 0.03},
     ],
-    "Uhlin": [
+    "Rep_name 1": [
+        {"name": "Range1", "limit": 500000, "percent": 0.0167},
+        {"name": "Range2", "limit": 2500000, "percent": 0.01},
+        {"name": "Range3", "limit": 10000000, "percent": 0.004},
+        {"name": "Range4", "limit": 25000000, "percent": 0.0023},
+        {"name": "Range5", "limit": 1000000000, "percent": 0.0017},
+    ],
+    "Rep_name 2": [
         {"name": "Range1", "limit": 500000, "percent": 0.0167},
         {"name": "Range2", "limit": 2500000, "percent": 0.01},
         {"name": "Range3", "limit": 10000000, "percent": 0.004},
